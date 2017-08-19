@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="ru.geekbrains.converter.ConvertActivity"
+    tools:showIn="@layout/activity_convert">
+
+    <EditText
+        android:id="@+id/celsiusValue"
+        android:layout_width="215dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/fahrenheitValue"
+        android:layout_width="215dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="67dp"
+        app:layout_constraintTop_toBottomOf="@+id/celsiusValue"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/celsiusLabel"
+        android:layout_width="56dp"
+        android:layout_height="17dp"
+        android:text="@string/celsius"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/fahrenheitLabel"
+        android:layout_width="78dp"
+        android:layout_height="17dp"
+        android:text="@string/fahrenheit"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="99dp"
+        app:layout_constraintTop_toBottomOf="@+id/celsiusLabel" />
+
+    <Button
+        android:id="@+id/toFahrenheitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="11dp"
+        android:text="@string/to_fahrenheit"
+        android:onClick="onToFahrenheitClick"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/celsiusValue" />
+
+</android.support.constraint.ConstraintLayout>
