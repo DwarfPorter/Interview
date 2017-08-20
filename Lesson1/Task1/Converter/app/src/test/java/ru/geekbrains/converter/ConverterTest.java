@@ -11,34 +11,41 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class ConverterTest {
 
+    // Тестируем Converter.Convert
     @Test
     public void Converter_Convert_UnitTest() throws Exception{
+
+        // Создаем мок-объект по интерфейсу ConvertTo
         ConvertTo convertTo = mock(ConvertTo.class);
-        float sourceValue = 22;
+        float sourceValue = 22; // Это исходное значение
         Converter converter = new Converter(sourceValue);
+
+        // Подставляем мок-объект в качестве реализации в метод конвертера
         converter.Convert(convertTo);
+
+        // Нам интересно то, что метод Do интерфейса ConvertTo был вызван.
         verify(convertTo).Do(22);
     }
 
+    // Тестируем Converter.GetResult
     @Test
     public void Converter_GetResult_UnitTest() throws Exception{
         float sourceValue = 22;
         Converter converter = new Converter(sourceValue);
-        float actual = converter.GetResult();
-        assertThat(actual, is(0f));
+        float actual = converter.GetResult();   // Получисс результат, неважно что вычислили
+
+        // assertThat использует матчеры, is это матчер
+        assertThat(actual, is(0f)); // тип float по умолчанию имеет значенрие 0
     }
 
+    // Интеграционнай тест, проверяем взаимодействие объекта Converter и ConvertToFahrenheit
     @Test
     public void Converter_IntegrationTest() throws Exception{
-        float sourceValue = 22;
+        float sourceValue = -15;
         Converter converter = new Converter(sourceValue);
-        float actual = converter.Convert(new ConvertTo() {
-            @Override
-            public float Do(float sourceValue) {
-                return 33;
-            }
-        }).GetResult();
-        assertThat(actual, is(33f));
+        // Вместо мок-объекта используем реальрный объект
+        float actual = converter.Convert(new ConvertToFahrenheit()).GetResult();
+        assertThat(actual, is(5f));
     }
 
     @Test
