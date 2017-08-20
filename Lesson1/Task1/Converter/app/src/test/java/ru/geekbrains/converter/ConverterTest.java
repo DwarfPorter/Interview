@@ -8,14 +8,11 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-/**
- * Created by vmoro on 18.08.2017.
- */
 @RunWith(MockitoJUnitRunner.class)
 public class ConverterTest {
 
     @Test
-    public void ConvertTest() throws Exception{
+    public void Converter_Convert_UnitTest() throws Exception{
         ConvertTo convertTo = mock(ConvertTo.class);
         float sourceValue = 22;
         Converter converter = new Converter(sourceValue);
@@ -24,8 +21,7 @@ public class ConverterTest {
     }
 
     @Test
-    public void GetResultTest() throws Exception{
-        ConvertTo convertTo = mock(ConvertTo.class);
+    public void Converter_GetResult_UnitTest() throws Exception{
         float sourceValue = 22;
         Converter converter = new Converter(sourceValue);
         float actual = converter.GetResult();
@@ -33,7 +29,7 @@ public class ConverterTest {
     }
 
     @Test
-    public void IntegrationTest() throws Exception{
+    public void Converter_IntegrationTest() throws Exception{
         float sourceValue = 22;
         Converter converter = new Converter(sourceValue);
         float actual = converter.Convert(new ConvertTo() {
@@ -44,4 +40,26 @@ public class ConverterTest {
         }).GetResult();
         assertThat(actual, is(33f));
     }
+
+    @Test
+    public void ConvertToCelsius_Do_UnitTest() throws Exception{
+        ConvertTo convertTo = new ConvertToCelsius();
+        float actual = convertTo.Do(5);
+        assertThat(actual, is(-15f));
+    }
+
+    @Test
+    public void ConvertToFahrenheit_Do_UnitTest() throws Exception{
+        ConvertTo convertTo = new ConvertToFahrenheit();
+        float actual = convertTo.Do(-15);
+        assertThat(actual, is(5f));
+    }
+
+    @Test
+    public void ConvertToMile_Do_UnitTest() throws Exception{
+        ConvertTo convertTo = new ConvertToMile();
+        float actual = convertTo.Do(2);
+        assertThat(actual, is(1.24274f));
+    }
+
 }

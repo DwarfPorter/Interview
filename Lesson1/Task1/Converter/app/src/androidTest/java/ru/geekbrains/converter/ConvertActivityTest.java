@@ -5,6 +5,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -13,6 +15,8 @@ import static android.support.test.espresso.assertion.ViewAssertions.*;
 import static android.support.test.espresso.matcher.ViewMatchers.*;
 import static android.support.test.espresso.action.ViewActions.*;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by vmoro on 19.08.2017.
  */
@@ -33,7 +37,7 @@ public class ConvertActivityTest {
     }
 
     @Test
-    public void changeText_sameActivity() {
+    public void ConvertActivity_toFahrenheitButton_Test() {
         // Type text and then press the button.
         onView(withId(R.id.celsiusValue))
                 .perform(typeText(mStringToBetyped), closeSoftKeyboard());
@@ -46,6 +50,14 @@ public class ConvertActivityTest {
         onView(withId(R.id.fahrenheitValue))
                 .check(matches(withText("41.00"))); // формат вывода два знака после запчтой
 
+    }
+
+    @Test
+    public void AppContext_Test() throws Exception {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getTargetContext();
+
+        assertEquals("ru.geekbrains.converter", appContext.getPackageName());
     }
 
 }
