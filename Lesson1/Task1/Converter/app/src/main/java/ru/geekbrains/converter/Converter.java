@@ -1,23 +1,30 @@
 package ru.geekbrains.converter;
 
-/**
- * Created by vmoro on 18.08.2017.
- */
+// Класс Converter отвечает за различные преобразования
+// и является связующим звеном между Activity и самими преобразованиями.
+// Таким образом, чтобы сделать какое-либо новое преобразование, достаточно
+// реализовать интерфейс ConvertTo.
+class Converter {
+    private float _sourceValue; // Значение, которое надо сконвертировать
+    private float _destValue;   // Сконвертированное значение
 
-public class Converter {
-    private float _sourceValue;
-    private float _destValue;
-
-    public Converter(float sourceValue){
+    // Конструктор, в качестве параметра передаем исходное значение
+    Converter(float sourceValue){
         _sourceValue = sourceValue;
     }
 
-    public Converter Convert(Convert convert){
-        _destValue = convert.Do(_sourceValue);
+    // Метод конвертирует значения
+    // ConvertTo - конвертирующий значения интерфейс
+    Converter Convert(ConvertTo convertTo){
+        // Передаем в интерфейс исходное значение, получаем сконвертированное
+        _destValue = convertTo.Do(_sourceValue);
+
+        // Здесь класс возвращает сам себя, для удобства работы.
         return  this;
     }
 
-    public float GetResult(){
+    // Метод возвращает результат
+    float GetResult(){
         return _destValue;
     }
 }

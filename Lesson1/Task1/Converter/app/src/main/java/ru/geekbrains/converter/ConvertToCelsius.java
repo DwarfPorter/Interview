@@ -1,12 +1,10 @@
 package ru.geekbrains.converter;
 
-/**
- * Created by vmoro on 19.08.2017.
- */
-
-public class ConvertToCelsius implements Convert {
+// Реализация интерфейса ConvertTo.
+// Перевод в Цельсии из Фаренгейта.
+class ConvertToCelsius implements ConvertTo {
     @Override
     public float Do(float sourceValue) {
-        return (float)((sourceValue - 32) / 1.8);
+        return (float)((sourceValue - 32) / 1.8);   // Вычисление Цельсия
     }
 }

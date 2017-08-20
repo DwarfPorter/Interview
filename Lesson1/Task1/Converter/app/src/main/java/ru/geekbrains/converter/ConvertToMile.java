@@ -1,12 +1,10 @@
 package ru.geekbrains.converter;
 
-/**
- * Created by vmoro on 19.08.2017.
- */
-
-public class ConvertToMile implements Convert {
+// Реализация интерфейса ConvertTo.
+// Перевод в Мили из КМ.
+class ConvertToMile implements ConvertTo {
     @Override
     public float Do(float sourceValue){
-        return (float)(sourceValue * 0.62137);
+        return (float)(sourceValue * 0.62137); // Вычисление миль
     }
 }

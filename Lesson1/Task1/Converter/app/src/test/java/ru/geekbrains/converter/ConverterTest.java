@@ -16,16 +16,16 @@ public class ConverterTest {
 
     @Test
     public void ConvertTest() throws Exception{
-        Convert convert = mock(Convert.class);
+        ConvertTo convertTo = mock(ConvertTo.class);
         float sourceValue = 22;
         Converter converter = new Converter(sourceValue);
-        converter.Convert(convert);
-        verify(convert).Do(22);
+        converter.Convert(convertTo);
+        verify(convertTo).Do(22);
     }
 
     @Test
     public void GetResultTest() throws Exception{
-        Convert convert = mock(Convert.class);
+        ConvertTo convertTo = mock(ConvertTo.class);
         float sourceValue = 22;
         Converter converter = new Converter(sourceValue);
         float actual = converter.GetResult();
@@ -36,7 +36,7 @@ public class ConverterTest {
     public void IntegrationTest() throws Exception{
         float sourceValue = 22;
         Converter converter = new Converter(sourceValue);
-        float actual = converter.Convert(new Convert() {
+        float actual = converter.Convert(new ConvertTo() {
             @Override
             public float Do(float sourceValue) {
                 return 33;
