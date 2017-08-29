@@ -8,5 +8,4 @@ public class User implements IUser{
 	public String getName(){
 		return name;
 	}
-
 }
