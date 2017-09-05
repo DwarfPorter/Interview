@@ -9,15 +9,19 @@ public class Sorting<T> {
     public List<T> bubble(BiFunction<T, T, Boolean> compare){
         for(int i=0; i < array.size(); i++){
             for(int j=0; j < array.size()-i-1; j++){
-                if(compare.apply(array.get(j), array.get(j+1))){
-                }
+                sortElements(j, j+1, compare);
             }
         }
         return array;
     }
-    private void exchangeElements(int j){
-        T tempElement = array.get(j);
-        array.set(j, array.get(j+1));
-        array.set(j+1, tempElement);
+    private void sortElements(int index1, int index2, BiFunction<T, T, Boolean> compare){
+        if(compare.apply(array.get(index1), array.get(index2))){
+            exchangeElements(index1, index2);
+        }
+    }
+    private void exchangeElements(int index1, int index2){
+        T tempElement = array.get(index2);
+        array.set(index2, array.get(index1));
+        array.set(index1, tempElement);
     }
 }
