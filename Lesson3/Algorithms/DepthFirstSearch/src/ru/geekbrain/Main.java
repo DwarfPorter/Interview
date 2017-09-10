@@ -30,6 +30,7 @@ public class Main {
         dfs.getPath(7).stream().forEach(n -> System.out.println(n.getName()));
         System.out.println("Path from First to Sixth");
         dfs.getPath(6).stream().forEach(n -> System.out.println(n.getName()));
-
+        System.out.println("Path from First to ...");
+        dfs.getPath(0).stream().forEach(n -> System.out.println(n.getName()));
     }
 }
