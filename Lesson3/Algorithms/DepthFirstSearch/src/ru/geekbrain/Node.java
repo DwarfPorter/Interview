@@ -16,7 +16,6 @@ public class Node {
         for(Node node: nodes){
             this.nodes.add(node);
         }
-
     }
 
     public void addNode(Node node){
