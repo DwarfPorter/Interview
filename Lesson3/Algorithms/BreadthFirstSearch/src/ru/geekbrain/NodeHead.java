@@ -16,4 +16,8 @@ public class NodeHead {
     public int getId() {
         return id;
     }
+
+    public static NodeHead getEmpty(){
+        return new NodeHead(0, "");
+    }
 }

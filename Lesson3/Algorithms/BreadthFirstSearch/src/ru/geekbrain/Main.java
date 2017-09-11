@@ -1,5 +1,7 @@
 package ru.geekbrain;
 
+import java.util.NoSuchElementException;
+
 public class Main {
 
     //   1 ---- 2
@@ -31,6 +33,11 @@ public class Main {
         System.out.println("Path from First to Sixth");
         bfs.getPath(6).stream().forEach(n -> System.out.println(n.getName()));
         System.out.println("Path from First to ...");
-        bfs.getPath(0).stream().forEach(n -> System.out.println(n.getName()));
+        try {
+            bfs.getPath(0).stream().forEach(n -> System.out.println(n.getName()));
+        }
+        catch (NoSuchElementException e){
+            System.out.println("Not found");
+        }
     }
 }
