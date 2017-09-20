@@ -12,6 +12,7 @@
         <receiver android:name=".MyWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="ru.geekbrains.widget.ACTION_WIDGET_RECEIVER" />
             </intent-filter>
 
             <meta-data

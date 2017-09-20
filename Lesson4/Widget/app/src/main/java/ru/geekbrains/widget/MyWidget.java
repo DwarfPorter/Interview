@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MyWidget extends AppWidgetProvider {
 
-    public final static String ACTION_WIDGET_RECEIVER = "ACTION_RECEIVER_WIDGET";
+    public final static String ACTION_WIDGET_RECEIVER = "ACTION_WIDGET_RECEIVER";
     private final static String ExtraMsg = "msg";
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
