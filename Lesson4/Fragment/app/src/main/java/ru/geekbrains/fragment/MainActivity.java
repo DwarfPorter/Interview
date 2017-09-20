@@ -1,5 +1,6 @@
 package ru.geekbrains.fragment;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,8 +10,8 @@ import layout.FragmentCount;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FragmentTime fragment1;
-    private FragmentCount fragment2;
+    private Fragment fragment1;
+    private Fragment fragment2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,23 +24,40 @@ public class MainActivity extends AppCompatActivity {
         buttonFragment1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fTrans = getSupportFragmentManager().beginTransaction();
-                if (fragment2 != null && fragment2.isAdded()) fTrans.remove(fragment2);
-                if (fragment1 == null) fragment1 = new FragmentTime();
-                if (!fragment1.isAdded()) fTrans.add(R.id.frgmCont, fragment1);
-                fTrans.commit();
+                fragment1 = changeFragments(fragment1, fragment2, new CreatorFragmentCount());
             }
         });
 
         buttonFragment2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fTrans = getSupportFragmentManager().beginTransaction();
-                if (fragment1 != null && fragment1.isAdded()) fTrans.remove(fragment1);
-                if (fragment2 == null) fragment2 = new FragmentCount();
-                if (!fragment2.isAdded()) fTrans.add(R.id.frgmCont, fragment2);
-                fTrans.commit();
+                fragment2 = changeFragments(fragment2, fragment1, new CreatorFragmentTime());
             }
         });
+    }
+
+    private Fragment changeFragments(Fragment fragmentA, Fragment fragmentB, CreatorFragment creatorFragment){
+        FragmentTransaction fTrans = getSupportFragmentManager().beginTransaction();
+        if (fragmentB != null && fragmentB.isAdded()) fTrans.remove(fragmentB);
+        if (fragmentA == null) fragmentA = creatorFragment.create();
+        if (!fragmentA.isAdded()) fTrans.add(R.id.frgmCont, fragmentA);
+        fTrans.commit();
+        return fragmentA;
+    }
+
+    interface CreatorFragment{
+        Fragment create();
+    }
+
+    class CreatorFragmentTime implements CreatorFragment{
+        public Fragment create(){
+            return new FragmentTime();
+        }
+    }
+
+    class CreatorFragmentCount implements CreatorFragment{
+        public Fragment create(){
+            return new FragmentCount();
+        }
     }
 }
