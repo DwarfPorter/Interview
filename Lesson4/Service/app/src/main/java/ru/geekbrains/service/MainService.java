@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
+// Служба
 public class MainService extends IntentService {
     int messageId=0;
 
