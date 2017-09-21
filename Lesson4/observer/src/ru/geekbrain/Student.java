@@ -1,5 +1,6 @@
 package ru.geekbrain;
 
+// Студент, цепляется за любую работу, которая лучше текущей
 public class Student implements Observer {
     String name;
     int salary;
