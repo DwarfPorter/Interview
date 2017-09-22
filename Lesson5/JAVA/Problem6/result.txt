@@ -1,0 +1,4 @@
+Exception in thread "main" java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.<init>(Integer.java:867)
+	at ru.geekbrain.Main.main(Main.java:6)

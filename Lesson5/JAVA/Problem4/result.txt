@@ -1,0 +1,4 @@
+Exception in thread "main" java.lang.NullPointerException
+	at ru.geekbrain.ClassA.getValue(ClassA.java:6)
+	at ru.geekbrain.ClassB.print(ClassB.java:7)
+	at ru.geekbrain.Main.main(Main.java:7)

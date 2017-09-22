@@ -1,0 +1,2 @@
+Error:(8, 19) java: reference to println is ambiguous
+  both method println(char[]) in java.io.PrintStream and method println(java.lang.String) in java.io.PrintStream match
