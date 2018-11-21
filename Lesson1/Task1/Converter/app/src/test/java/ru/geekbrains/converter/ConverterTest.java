@@ -43,7 +43,7 @@ public class ConverterTest {
     public void Converter_IntegrationTest() throws Exception{
         float sourceValue = -15;
         Converter converter = new Converter(sourceValue);
-        // Вместо мок-объекта используем реальрный объект
+        // Вместо мок-объекта используем реальный объект
         float actual = converter.Convert(new ConvertToFahrenheit()).GetResult();
         assertThat(actual, is(5f));
     }
