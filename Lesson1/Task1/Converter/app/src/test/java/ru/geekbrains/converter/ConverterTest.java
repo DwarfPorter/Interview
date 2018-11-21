@@ -32,13 +32,13 @@ public class ConverterTest {
     public void Converter_GetResult_UnitTest() throws Exception{
         float sourceValue = 22;
         Converter converter = new Converter(sourceValue);
-        float actual = converter.GetResult();   // Получисс результат, неважно что вычислили
+        float actual = converter.GetResult();   // Получить результат, неважно что вычислили
 
         // assertThat использует матчеры, is это матчер
         assertThat(actual, is(0f)); // тип float по умолчанию имеет значенрие 0
     }
 
-    // Интеграционнай тест, проверяем взаимодействие объекта Converter и ConvertToFahrenheit
+    // Интеграционный тест, проверяем взаимодействие объекта Converter и ConvertToFahrenheit
     @Test
     public void Converter_IntegrationTest() throws Exception{
         float sourceValue = -15;
