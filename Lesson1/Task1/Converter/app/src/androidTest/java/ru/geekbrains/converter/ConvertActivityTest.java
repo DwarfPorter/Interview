@@ -48,7 +48,7 @@ public class ConvertActivityTest {
                 .check(matches(withText(mStringToBetyped)));
 
         onView(withId(R.id.fahrenheitValue))
-                .check(matches(withText("41,00"))); // формат вывода два знака после запятой
+                .check(matches(withText("41.00"))); // формат вывода два знака после запятой
 
     }
 
