@@ -30,25 +30,37 @@ public class ConvertActivityTest {
     public ActivityTestRule<ConvertActivity> mActivityRule = new ActivityTestRule<>(
             ConvertActivity.class);
 
-    @Before
-    public void initValidString() {
-        // Specify a valid string.
-        mStringToBetyped = "5";
-    }
-
     @Test
     public void ConvertActivity_toFahrenheitButton_Test() {
+        mStringToBetyped = "5";
         // Type text and then press the button.
-        onView(withId(R.id.celsiusValue))
+        onView(withId(R.id.value))
                 .perform(typeText(mStringToBetyped), closeSoftKeyboard());
         onView(withId(R.id.toFahrenheitButton)).perform(click());
 
         // Check that the text was changed.
-        onView(withId(R.id.celsiusValue))
+        onView(withId(R.id.value))
                 .check(matches(withText(mStringToBetyped)));
 
-        onView(withId(R.id.fahrenheitValue))
+        onView(withId(R.id.result))
                 .check(matches(withText("41.00"))); // формат вывода два знака после запятой
+
+    }
+
+    @Test
+    public void ConvertActivity_toMetersPerSecondButton_Test() {
+        mStringToBetyped = "36";
+        // Type text and then press the button.
+        onView(withId(R.id.value))
+                .perform(typeText(mStringToBetyped), closeSoftKeyboard());
+        onView(withId(R.id.toMetersPerSecondButton)).perform(click());
+
+        // Check that the text was changed.
+        onView(withId(R.id.value))
+                .check(matches(withText(mStringToBetyped)));
+
+        onView(withId(R.id.result))
+                .check(matches(withText("10.00"))); // формат вывода два знака после запятой
 
     }
 
