@@ -14,19 +14,28 @@ public class ConvertActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convert);
-        sourceText = (EditText) findViewById(R.id.celsiusValue);
-        destText = (EditText) findViewById(R.id.fahrenheitValue);
+        sourceText = (EditText) findViewById(R.id.value);
+        destText = (EditText) findViewById(R.id.result);
     }
 
     // обработка нажатия
-    public void onToFahrenheitClick(View view) {
+    public void onButtonClick(View view) {
         // получить входное значение
         float sourceValue = Float.parseFloat(sourceText.getText().toString());
         // инстанцировать конвертер
         Converter converter = new Converter(sourceValue);
-        // преобразовать, обратите внимание на параметр ConvertToFahrenheit
-        float destValue = converter.Convert(new ConvertToFahrenheit()).GetResult();
-        // записать результат в элемент
-        destText.setText(String.format("%.02f", destValue));
+        Float destValue = null;
+        switch (view.getId()) {
+            case R.id.toFahrenheitButton:
+                // преобразовать, обратите внимание на параметр ConvertToFahrenheit
+                destValue = converter.Convert(new ConvertToFahrenheit()).GetResult();
+                break;
+            case R.id.toMetersPerSecondButton:
+                destValue = converter.Convert(new ConvertToMetersPerSecond()).GetResult();
+                break;
+        }
+        if (destValue != null) {
+            destText.setText(String.format("%.02f", destValue));
+        }
     }
 }
