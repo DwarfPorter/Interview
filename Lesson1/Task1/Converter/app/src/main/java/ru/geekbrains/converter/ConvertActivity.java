@@ -25,7 +25,7 @@ public class ConvertActivity extends AppCompatActivity {
         // инстанцировать конвертер
         Converter converter = new Converter(sourceValue);
         // преобразовать, обратите внимание на параметр ConvertToFahrenheit
-        float destValue = converter.Convert(new ConvertToFahrenheit()).GetResult();
+        float destValue = converter.convert(new ConvertToFahrenheit()).GetResult();
         // записать результат в элемент
         destText.setText(String.format("%.02f", destValue));
     }

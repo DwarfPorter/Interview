@@ -15,7 +15,7 @@ class Converter {
 
     // Метод конвертирует значения
     // ConvertTo - конвертирующий значения интерфейс
-    Converter Convert(ConvertTo convertTo){
+    Converter convert(ConvertTo convertTo){
         // Передаем в интерфейс исходное значение, получаем сконвертированное
         _destValue = convertTo.Do(_sourceValue);
 

@@ -11,7 +11,7 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class ConverterTest {
 
-    // Тестируем Converter.Convert
+    // Тестируем Converter.convert
     @Test
     public void Converter_Convert_UnitTest() throws Exception{
 
@@ -21,7 +21,7 @@ public class ConverterTest {
         Converter converter = new Converter(sourceValue);
 
         // Подставляем мок-объект в качестве реализации в метод конвертера
-        converter.Convert(convertTo);
+        converter.convert(convertTo);
 
         // Нам интересно то, что метод Do интерфейса ConvertTo был вызван.
         verify(convertTo).Do(22);
@@ -44,7 +44,7 @@ public class ConverterTest {
         float sourceValue = -15;
         Converter converter = new Converter(sourceValue);
         // Вместо мок-объекта используем реальный объект
-        float actual = converter.Convert(new ConvertToFahrenheit()).GetResult();
+        float actual = converter.convert(new ConvertToFahrenheit()).GetResult();
         assertThat(actual, is(5f));
     }
 
