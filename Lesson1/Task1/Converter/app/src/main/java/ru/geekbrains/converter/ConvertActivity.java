@@ -1,6 +1,7 @@
 package ru.geekbrains.converter;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -21,12 +22,18 @@ public class ConvertActivity extends AppCompatActivity {
     // обработка нажатия
     public void onToFahrenheitClick(View view) {
         // получить входное значение
-        float sourceValue = Float.parseFloat(sourceText.getText().toString());
-        // инстанцировать конвертер
-        Converter converter = new Converter(sourceValue);
-        // преобразовать, обратите внимание на параметр ConvertToFahrenheit
-        float destValue = converter.Convert(new ConvertToFahrenheit()).GetResult();
-        // записать результат в элемент
-        destText.setText(String.format("%.02f", destValue));
+        float sourceValue;
+        Converter converter;
+        try {
+            sourceValue = Float.parseFloat(sourceText.getText().toString());
+            // инстанцировать конвертер
+            converter = new Converter(sourceValue);
+            // преобразовать, обратите внимание на параметр ConvertToFahrenheit
+            float destValue = converter.Convert(new ConvertToFahrenheit()).GetResult();
+            // записать результат в элемент
+            destText.setText(String.format("%.02f", destValue));
+        } catch (NumberFormatException ex){
+            Snackbar.make(view, "Введите число!", Snackbar.LENGTH_SHORT).show();
+        }
     }
 }

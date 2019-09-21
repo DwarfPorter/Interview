@@ -69,4 +69,11 @@ public class ConverterTest {
         assertThat(actual, is(1.24274f));
     }
 
+    @Test
+    public void ConvertToMetersPerSecond_Do_UnitTest() throws Exception{
+        ConvertTo convertTo = new ConvertToMetersPerSecond();
+        float actual = convertTo.Do(10);
+        assertThat(actual, is(2.777777777f));
+    }
+
 }
