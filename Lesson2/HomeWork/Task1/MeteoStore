@@ -1,0 +1,3 @@
+interface MeteoStore{
+    boolean save(MeteoSensor meteoSensor);
+}
