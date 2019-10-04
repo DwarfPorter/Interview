@@ -1,5 +1,5 @@
 import java.util.*;
-class PrintReport{
+class PrintReport implements SendReport{
 	public void output(List<ReportItem> items){
 		System.out.println("Output to printer");
 		for(ReportItem item : items){
