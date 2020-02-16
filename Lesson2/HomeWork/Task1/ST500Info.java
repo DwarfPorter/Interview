@@ -1,6 +1,6 @@
 import java.time.*;
 
-class ST500Info{
+class ST500Info implements MeteoSensor{
 	public SensorTemperature getData(){
 		return new SensorTemperature(){
 				public int identifier(){
@@ -20,5 +20,31 @@ class ST500Info{
 					return now.getHour()*3600 + now.getMinute()*60 + now.getSecond();
 				}
 		};
+	}
+
+	@Override
+	public int getId() {
+		return getData().identifier();
+	}
+
+	@Override
+	public Float getTemperature() {
+		double temperature = getData().temperature();
+		return (float) temperature;
+	}
+
+	@Override
+	public Float getHumidity() {
+		return null;
+	}
+
+	@Override
+	public Float getPressure() {
+		return null;
+	}
+
+	@Override
+	public LocalDateTime getDateTime() {
+		return LocalDateTime.now();
 	}
 }
