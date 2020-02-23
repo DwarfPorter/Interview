@@ -1,5 +1,6 @@
 package algorithms;
 
+import algorithms.eratosfen.Eratosfen;
 import algorithms.fibonacci.FibonacciSequence;
 import algorithms.mylinkedlist.twowaylinkedlist.MyTwoWayLinkedList;
 import algorithms.mylinkedlist.twowaylinkedlist.MyTwoWayLinkedListImpl;
@@ -14,6 +15,9 @@ public class main {
         checkFibonacciSequenceAlgorithm();
 
         TwoSideMyLinkedListImplTest();
+
+        Eratosfen eratosfen = new Eratosfen(100);
+        eratosfen.displayAllNumbers();
 
     }
 
