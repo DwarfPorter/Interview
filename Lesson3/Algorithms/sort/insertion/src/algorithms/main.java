@@ -1,16 +1,26 @@
 package algorithms;
 
+import algorithms.fibonacci.FibonacciSequence;
 import algorithms.sort.Sort;
 
 public class main {
     public static void main(String[] args) {
+        System.out.println("Сортировка методом вставки:");
         checkSortAlgorithm();
+
+        System.out.println("Последовательность фибоначи:");
+        checkFibonacciSequenceAlgorithm();
+
+    }
+
+    private static void checkFibonacciSequenceAlgorithm() {
+        FibonacciSequence fibonacci = new FibonacciSequence();
+        printArray(fibonacci.calculatingFibonacciNumbers(20));
     }
 
     private static void checkSortAlgorithm() {
         int[] array = new int[10];
         Sort sort = new Sort();
-
         fillArray(array);
         printArray(array);
 
@@ -25,9 +35,9 @@ public class main {
     }
 
     private static void printArray(int[] array) {
-        System.out.println();
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
 }
