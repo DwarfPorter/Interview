@@ -47,8 +47,8 @@ public class ConvertActivityTest {
         onView(withId(R.id.celsiusValue))
                 .check(matches(withText(mStringToBetyped)));
 
-        onView(withId(R.id.fahrenheitValue))
-                .check(matches(withText("41.00"))); // формат вывода два знака после запятой
+            onView(withId(R.id.fahrenheitValue))
+                .check(matches(withText("41,00"))); // формат вывода два знака после запятой
 
     }
 

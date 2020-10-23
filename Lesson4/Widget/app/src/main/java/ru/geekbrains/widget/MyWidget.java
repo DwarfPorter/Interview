@@ -1,14 +1,17 @@
 package ru.geekbrains.widget;
 
+import android.annotation.TargetApi;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.os.Build;
 import android.widget.RemoteViews;
 
 public class MyWidget extends AppWidgetProvider {
 
     private final static String ExtraMsg = "msg";
 
+    @TargetApi(Build.VERSION_CODES.CUPCAKE)
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
