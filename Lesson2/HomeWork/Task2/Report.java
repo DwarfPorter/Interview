@@ -1,4 +1,4 @@
-import java.util.*;
+﻿import java.util.*;
 class Report{
 	private List<ReportItem> items;	// Отчетные данные
 	
@@ -9,8 +9,7 @@ class Report{
 		items.add(new ReportItem("Second", (float)6));
 	}
 	
-	public void output(){
-		PrintReport reportPrint = new PrintReport();
-		reportPrint.output(items);
+	public void output(ReportActions actions){
+		actions.output(items);
 	}
 }
